@@ -29,10 +29,10 @@ class ServerTcp implements Runnable{
                 
                 if(echo.equals("maiuscole on")){
                     maiusc=true;
-           
+                    out.println("Maiuscole attivate!");
                 }else if(echo.equals("maiuscole off")){
                     maiusc=false;
-                    
+                    out.println("Maiuscole disattivate!");
                 }else{
                     if(maiusc==true){
                     out.println(echo.toUpperCase());  
