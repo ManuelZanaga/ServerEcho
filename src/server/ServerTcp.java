@@ -33,8 +33,7 @@ class ServerTcp implements Runnable{
                 }else if(check.equals("maiuscole off")){
                     out.println(echo);
         }
-        Thread.sleep(1000);        
-                
+        Thread.sleep(1000);             
         }        
         }catch (IOException ex){} catch (InterruptedException ex) {
             Logger.getLogger(ServerTcp.class.getName()).log(Level.SEVERE, null, ex);
