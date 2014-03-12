@@ -14,6 +14,7 @@ class ServerTcp implements Runnable{
     Socket connection;
     String echo="";
     boolean maiusc=false;
+    String check;
     public ServerTcp(Socket accept) {
         connection=accept;
     }    
@@ -24,23 +25,15 @@ class ServerTcp implements Runnable{
         try{
         BufferedReader  in  =  new  BufferedReader ( new InputStreamReader ( connection . getInputStream ()));
         PrintWriter  out  =  new  PrintWriter ( new  OutputStreamWriter ( connection.getOutputStream ()),  true );
-            while(!echo.equals("fine")){
-                echo= in.readLine();
-                
-                if(echo.equals("maiuscole on")){
-                    maiusc=true;
-                    out.println("Maiuscole attivate!");
-                }else if(echo.equals("maiuscole off")){
-                    maiusc=false;
-                    out.println("Maiuscole disattivate!");
-                }else{
-                    if(maiusc==true){
-                    out.println(echo.toUpperCase());  
-                    }else{
-                    out.println(echo); 
-                    }
-                }
-                Thread.sleep(1000);
+        while(!echo.equals("fine")){
+            check= in.readLine();
+            echo= in.readLine();
+                if(check.equals("maiuscole on")){
+                    out.println(echo.toUpperCase());
+                }else if(check.equals("maiuscole off")){
+                    out.println(echo);
+        }
+        Thread.sleep(1000);        
                 
         }        
         }catch (IOException ex){} catch (InterruptedException ex) {
