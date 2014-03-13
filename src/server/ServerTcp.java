@@ -21,7 +21,6 @@ class ServerTcp extends Thread{
     @Override
     public void run() {
         System.out.println("Apertura porta in corso...");
-        
         try{
         BufferedReader  in  =  new  BufferedReader ( new InputStreamReader ( connection . getInputStream ()));
         PrintWriter  out  =  new  PrintWriter ( new  OutputStreamWriter ( connection.getOutputStream ()),  true );
