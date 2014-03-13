@@ -10,7 +10,7 @@ import  java.util.logging.Logger ;
  *
  * @author Manuel
  */
-class ServerTcp implements Runnable{
+class ServerTcp extends Thread{
     Socket connection;
     String echo="";
     boolean maiusc=false;
